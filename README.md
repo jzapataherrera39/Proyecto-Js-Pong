@@ -12,4 +12,5 @@ de noviembre de 1972. Pong está basado en el deporte de tenis de mesa.
 Integrantes
 <br>
 -Jorge Andrés Zapata Herrera (Institucional)
+<br>
 -Heydi Katherine Estrada Jaraba 
