@@ -16,3 +16,5 @@ Integrantes
 -Heydi Katherine Estrada Jaraba 
 <br>
 -Veronica Isabel Gutierrez Sandon
+<br>
+-Leonardo Berrocal Alvarez
