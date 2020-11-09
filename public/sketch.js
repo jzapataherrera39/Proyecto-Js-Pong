@@ -1,17 +1,24 @@
 var p;
 var b;
+var socket;
 var balls = [];
-var a;
+//var a;
 var lastPos;
 var go = false;
 function setup(){
+  socket = io.connect("http://localhost:3000");
     createCanvas(750,600);
     p = new Player();
     b = new Ball();
-    for(var i = 0; i < 4; i++){
-      balls[i] = new Ball();
+  /* for(var i = 0; i < 4; i++){
+     balls[i] = new Ball();
+    }*/
+    //a = new Ai();
+  
+    var data ={
+      id:socket.id;
     }
-    a = new Ai();
+    socket.emit('start' ,data);
 }
 
 function draw(){
@@ -20,28 +27,28 @@ function draw(){
     textSize(48);
     fill(0, 102, 153);
     text(p.points, 30, 40);
-    text(a.points, width - 80, 40);
+   // text(a.points, width - 80, 40);
     p.show();
     p.move(b);
     b.show();
-    a.show();
-    a.move(b);
+    /*a.show();
+    a.move(b);´*/
     b.move();
     if(b.collision(p))
       b.xv = 5;
-    if(b.collision(a))
+    /*if(b.collision(a))
       b.xv = -5;
     if(b.x < 0){
       a.points++;
       throwBall();
-    }
+    }*/
     if(b.x > width){
         p.points++;
         throwBall();
     }
 }
 
-function throwBall(){
+/*function throwBall(){
     if(balls.length > 0)
       b = balls.pop();
     else {
@@ -49,9 +56,9 @@ function throwBall(){
       alert("Do you want to play again?");
       window.location.reload();
     }
-}
+}*/
 
-function showWinner(){
+/*function showWinner(){
   background(0);
   textSize(80);
   fill(0, 102, 153);
@@ -62,4 +69,4 @@ function showWinner(){
   else
     text("TIE", width/2 -100, height/2);
 
-}
+}*/

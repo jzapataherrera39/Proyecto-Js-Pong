@@ -12,7 +12,6 @@ function Player(){
    }
 
    this.move = function(b){
-     if(b.x < width/2){
       if(p.y < mouseY)
        p.y += p.velocityy;
      else if(p.y > mouseY)
@@ -20,4 +19,4 @@ function Player(){
      }
    }
 
-}
+
