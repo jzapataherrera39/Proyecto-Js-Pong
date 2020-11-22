@@ -9,7 +9,7 @@ var go = false;
 var counter = 0;
 function setup(){
   socket= io.connect("http://localhost:3000");
-    createCanvas(750,600);
+    createCanvas(600,600);
     //p = new Player();
     b = new Ball();
   /*for(var i = 0; i < 4; i++){
@@ -18,12 +18,13 @@ function setup(){
     //a = new Ai();
     socket.on('getCounter',function(data){
       counter = data;
-      if(p == undefined){
+      if(p === undefined){
         if(counter % 2 === 0)
         p = new Player(0);
       else
         p = new Player(width);
     }
+
     var data= {
       x:p.x,
       y:p.y,
@@ -33,6 +34,17 @@ function setup(){
       p:p.p
     };
     socket.emit('start', data);
+    
+    
+    var data= {
+      x:b.x,
+      y:b.y,
+      xv:b.xv,
+      xy:b.yv,
+      r:b.r,
+    };
+    socket.emit('startBall', data);
+
 
 if(counter === 2)
 go = true;
@@ -44,6 +56,16 @@ go = true;
   socket.on('hearBeat',function(data){
     players = data;
   });
+  socket.on('hearBeatBall',function(data){
+    if(data !== null){
+    b.x = data.x;
+    b.y = data.y;
+    b.xv = data.xv;
+    b.yv = data.yv;
+    b.r = data.r;
+  }
+});
+  
 }
 
 function draw(){
@@ -57,20 +79,16 @@ function draw(){
     p.show();
     p.move(b);
     b.show();
-    /*a.show();
-    a.move(b);*/
     b.move();
-    if(b.collision(p))
-      b.xv = 5;
-    /*if(b.collision(a))
-      b.xv = -5;
-    if(b.x < 0){
-      a.points++;
-      throwBall();
-    }*/
-    if(b.x > width){
-        p.points++;
-    }
+    if(b.collision(p) && p.x === 0)
+    b.xv = 5;
+    if(b.collision(p) && p.x === width)
+    b.xv = -5;
+    if(b.x < 0)
+    throwBall();
+    if(b.x > width)
+    throwBall();
+
     for(var i = 0; i< players.length; i++){
       var id = players[i].id;
       if(id !== socket.id){
@@ -89,17 +107,20 @@ function draw(){
     };
     socket.emit('update',data);
   }
-
+  var data= {
+    x:b.x,
+    y:b.y,
+    xv:b.xv,
+    yv:b.yv,
+    r:b.r,
+  };
+  socket.emit('updateBall',data);
 }
-/*function throwBall(){
-    if(balls.length > 0)
-      b = balls.pop();
-    else {
-      showWinner();
-      alert("Do you want to play again?");
-      window.location.reload();
-    }
-}*/
+
+function throwBall(){
+    b.x = width/2;
+    b.y = height/2;
+}
 
 /*function showWinner(){
   background(0);
