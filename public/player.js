@@ -1,7 +1,7 @@
-function Player(){
-   this.x = 0;
+function Player(x){
+   this.x = x;
    this.y = height/2;
-   this.velocityy = 6;
+   this.velocityy = 4;
    this.w = 20;
    this.h = 80;
    this.points = 0;
@@ -18,5 +18,3 @@ function Player(){
        p.y -= p.velocityy;
      }
    }
-
-

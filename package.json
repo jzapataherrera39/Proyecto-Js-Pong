@@ -2,10 +2,9 @@
   "name": "pong",
   "version": "1.0.0",
   "description": "juego",
-  "main": "app.js",
+  "main": "sever.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -24,8 +23,7 @@
   "homepage": "https://github.com/jzapataherrera39/Proyecto-Js-Pong#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "nodemon": "^2.0.6",
-    "socket.io": "^2.3.0"
-  },
-  "devDependencies": {}
+    "save": "^2.4.0",
+    "socket.io": "^3.0.3"
+  }
 }
