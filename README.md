@@ -13,8 +13,8 @@ Integrantes
 <br>
 -Jorge Andrés Zapata Herrera (Institucional)(Desarrollador Principal)
 <br>
--Heydi Katherine Estrada Jaraba (Desarrollador Secundario)
+-Veronica Isabel Gutierrez Sandon (Desarrollador Secundario)
 <br>
--Veronica Isabel Gutierrez Sandon(Investigador Principal)
+-Heydi Katherine Estrada Jaraba(Investigador Principal)
 <br>
 -Leonardo Berrocal Alvarez(Investigador Principal)
