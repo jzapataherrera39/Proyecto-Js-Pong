@@ -1,29 +1,18 @@
 {
-  "name": "pong",
+  "name": "online_ping_pong-d2ee8754cc1a1d9e3419a29ea5f7003f25383078",
   "version": "1.0.0",
-  "description": "juego",
-  "main": "sever.js",
+  "description": "",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jzapataherrera39/Proyecto-Js-Pong.git"
-  },
-  "keywords": [
-    "game",
-    "pong",
-    "js"
-  ],
-  "author": "Jorge",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jzapataherrera39/Proyecto-Js-Pong/issues"
-  },
-  "homepage": "https://github.com/jzapataherrera39/Proyecto-Js-Pong#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "save": "^2.4.0",
+    "nodemon": "^2.0.6",
+    "path": "^0.12.7",
     "socket.io": "^3.0.3"
   }
 }
